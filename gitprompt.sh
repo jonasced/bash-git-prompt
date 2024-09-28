@@ -21,7 +21,7 @@ function async_run_zsh() {
 function set_git_prompt_dir() {
   # code thanks to http://stackoverflow.com/questions/59895
   if [ -z "$__GIT_PROMPT_DIR" ]; then
-    __GIT_PROMPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+    __GIT_PROMPT_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
   fi
 }
 
